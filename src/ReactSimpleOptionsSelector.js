@@ -29,30 +29,30 @@ const OptionContainer = styled.div`
 		return css`${margin_padding}`
 	}}
 
-	${props=> props.align === "center" && 
+	${props=> props.align === "center" &&
 	css`
 		display: inline-block !important;
 		vertical-align: top !important;
-	` 
+	`
 	};
 
-	${props=> ((props.align === "left") || (props.align === "right")) && 
+	${props=> ((props.align === "left") || (props.align === "right")) &&
 	css`
 		float:${props.align}
-	` 
+	`
 	};
-	
-	
+
+
 `
 const Button = styled.input`
 
-	background-color: ${props=> props.selected ? props.selected_background_color:"lightgrey"};
+	background-color: ${props=> props.selected ? props.selected_background_color:"green"};
 	color:  ${props=> props.selected ? props.selected_text_color:"black"};
 	font:15px;
 	font-weight:bold;
 	height:40px;
 	border:none;
-	border: 1px solid ${props=> props.selected ? props.selected_border_color:"black"};
+	border: 10px solid ${props=> props.selected ? props.selected_border_color:"black"};
 	cursor:pointer;
 	padding: 0.25em 1em;
 	border: 2px solid violetred;
@@ -68,7 +68,7 @@ export default class ReactSimpleOptionsSelector extends React.Component{
 
 		let defaultOptionsState = {}
         this.props.options.forEach(function(obj, ind){
-            defaultOptionsState[obj.id] = obj.selected    
+            defaultOptionsState[obj.id] = obj.selected
         })
 
         this.state={
@@ -76,7 +76,7 @@ export default class ReactSimpleOptionsSelector extends React.Component{
         }
 
 		this.optionClicked = this.optionClicked.bind(this)
-		
+
 	}
 
 	optionClicked(event){
@@ -118,10 +118,10 @@ export default class ReactSimpleOptionsSelector extends React.Component{
 	render(){
 
 		let options = this.props.options.map((option)=>{
-			return (<OptionContainer 
-				key={option.id} 
+			return (<OptionContainer
+				key={option.id}
 				align={this.props.align}
-				
+
 				margin_left={this.props.margin_left}
 				margin_right={this.props.margin_right}
 				margin_top={this.props.margin_top}
@@ -130,22 +130,22 @@ export default class ReactSimpleOptionsSelector extends React.Component{
 				padding_right={this.props.padding_right}
 				padding_top={this.props.padding_top}
 				padding_bottom={this.props.padding_bottom}
-				
-				> 
-					<Button onClick={this.optionClicked} 
-						type="button" 
-						
+
+				>
+					<Button onClick={this.optionClicked}
+						type="button"
+
 						selected_text_color={this.props.selected_text_color}
 						selected_border_color={this.props.selected_border_color}
 						selected_background_color={this.props.selected_background_color}
-						
-						value={option.label} 
-						id={option.id} 
+
+						value={option.label}
+						id={option.id}
 						selected={this.state[option.id]}/>
 			</OptionContainer>)
 		})
 
-		return (<Container align={this.props.align}>{options}</Container>);		
+		return (<Container align={this.props.align}>{options}</Container>);
 	}
 }
 
@@ -163,7 +163,7 @@ ReactSimpleOptionsSelector.PropTypes = {
 	})),
 	onSelectionChange: PropTypes.func,
 	type: PropTypes.string, // radio or checkbox
-	
+
 	selected_text_color:PropTypes.string,
 	selected_border_color:PropTypes.string,
 	selected_background_color:PropTypes.string,
@@ -213,11 +213,11 @@ ReactSimpleOptionsSelector.defaultProps = {
 		console.log(name, selected);
 	},
 	type: 'radio',
-	
+
 	selected_text_color:"#ffffff",
 	selected_border_color:"#04755B",
 	selected_background_color:"#06BA90",
-	
+
 	margin_left:0,
 	margin_right:10,
 	margin_top:0,
@@ -227,9 +227,7 @@ ReactSimpleOptionsSelector.defaultProps = {
 	padding_right:0,
 	padding_top:0,
 	padding_bottom:0,
-	
-	align:"center" 
+
+	align:"center"
 
 }
-
-
