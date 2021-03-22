@@ -137,7 +137,7 @@ export default class ReactSimpleOptionsSelector extends React.Component{
 
 						selected_text_color={this.props.selected_text_color}
 						selected_border_color={this.props.selected_border_color}
-						selected_background_color={this.props.selected_background_color}
+						selected_background_color="#ffffff"
 
 						value={option.label}
 						id={option.id}
